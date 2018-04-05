@@ -1,26 +1,12 @@
-From 32bee43a15adb52a1c64bcd19fa7f2a0e51b78de Mon Sep 17 00:00:00 2001
-From: Andy CrossGate Yan <GeForce8800Ultra@gmail.com>
-Date: Thu, 5 Apr 2018 10:01:19 +0800
-Subject: [PATCH] Disable vendor mismatch warning
-
----
- ...gerService$$ExternalSyntheticLambda8.smali | 5 ++++-
- ...calService$$ExternalSyntheticLambda4.smali | 83 ++-----------------
- 2 files changed, 11 insertions(+), 77 deletions(-)
-
-diff --git a/smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali b/smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali
-index a55014bf1..f80efb330 100644
---- a/smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali
-+++ b/smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali
+--- smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali
++++ smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali
 @@ -169,3 +169,5 @@
 -    const-string v4, "Build fingerprint is not consistent, warning user"
 +    const-string v4, "Build fingerprint is not consistent"
 +    return-void
 +    const-string v4, "Build fingerprint is not consistent"
-diff --git a/smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali b/smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali
-index 7ce9f057e..7547637d2 100644
---- a/smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali
-+++ b/smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali
+--- smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali
++++ smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali
 @@ -36,73 +36,6 @@
  
      packed-switch v0, :pswitch_data_0
@@ -163,6 +149,3 @@ index 7ce9f057e..7547637d2 100644
      return-void
  
      nop
--- 
-2.52.0
-
