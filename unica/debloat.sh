@@ -1,7 +1,7 @@
 # Copyright (c) 2025 Salvo Giangreco
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-# UN1CA debloat list
+# PrismProject-Next debloat list
 # - Add entries inside the specific partition containing that file (<PARTITION>_DEBLOAT+="")
 # - DO NOT add the partition name at the start of any entry (eg. "/system/dpolicy_system")
 # - DO NOT add a slash at the start of any entry (eg. "/dpolicy_system")
@@ -151,8 +151,6 @@ SYSTEM_DEBLOAT+="
 system/priv-app/YourPhone_P1_5
 "
 
-ADD_TO_WORK_DIR "gta9pxxx" "system" "system/priv-app/YourPhone_Stub/YourPhone_Stub.apk" 0 0 644 "u:object_r:system_file:s0"
-
 # Live Transcribe
 SYSTEM_DEBLOAT+="
 system/app/LiveTranscribe
@@ -205,32 +203,10 @@ system/priv-app/AREmojiEditor
 system/priv-app/AvatarEmojiSticker
 "
 
-# Samsung Calendar
-SYSTEM_DEBLOAT+="
-system/app/SamsungCalendar
-"
-
-# Samsung Clock
-SYSTEM_DEBLOAT+="
-system/app/ClockPackage
-"
-
-# Samsung Free
-SYSTEM_DEBLOAT+="
-system/app/MinusOnePage
-"
-
 # Samsung Language Core
 SYSTEM_DEBLOAT+="
 system/etc/permissions/signature-permissions-com.samsung.android.offline.languagemodel.xml
 system/priv-app/OfflineLanguageModel_stub
-"
-
-# Samsung Messages
-SYSTEM_DEBLOAT+="
-system/etc/default-permissions/default-permissions-com.samsung.android.messaging.xml
-system/etc/permissions/privapp-permissions-com.samsung.android.messaging.xml
-system/priv-app/SamsungMessages
 "
 
 # Samsung Pass
@@ -255,7 +231,6 @@ system/app/SmartReminder
 
 # Samsung Visit In
 SYSTEM_DEBLOAT+="
-system/etc/permissions/com.samsung.feature.ipsgeofence.xml
 system/etc/permissions/privapp-permissions-com.samsung.android.ipsgeofence.xml
 system/priv-app/IpsGeofence
 "
@@ -335,4 +310,24 @@ system/etc/sysconfig/feature-a11y-preload-voacc.xml
 # YouTube
 PRODUCT_DEBLOAT+="
 app/YouTube
+"
+
+# Game Optimizing Service
+SYSTEM_DEBLOAT+="
+system/priv-app/GameOptimizingService
+"
+
+# Others
+SYSTEM_DEBLOAT+="
+system/app/CarrierDefaultApp
+system/app/ccinfo
+system/app/ChromeCustomizations
+system/app/Fast
+system/app/KidsHome_Installer
+system/app/MDMApp
+system/app/Rampart
+system/app/SilentLog
+system/app/SimAppDialog
+system/app/UniversalMDMClient
+system/app/WifiGuider
 "
