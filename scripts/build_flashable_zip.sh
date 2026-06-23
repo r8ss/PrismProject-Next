@@ -24,11 +24,11 @@ PREPARE_SCRIPT()
         elif [[ "$1" == "--output" ]] || [[ "$1" == "-o" ]]; then
             shift; OUTPUT_FILE="$1"
             if [[ "$OUTPUT_FILE" != *".zip" ]]; then
-                LOGE "Output file name must have \".zip\" extension"
+                LOGE "출력 파일 이름에는 \".zip\" 확장자가 있어야 합니다."
                 exit 1
             fi
         else
-            LOGE "Unknown option: $1"
+            LOGE "알 수 없는 옵션입니다: $1"
             exit 1
         fi
 
@@ -40,13 +40,13 @@ PREPARE_SCRIPT()
         PRINT_USAGE
         exit 1
     elif [ ! -f "$TARGET_ZIP" ]; then
-        LOGE "File not found: ${TARGET_ZIP//$SRC_DIR\//}"
+        LOGE "파일을 찾을 수 없습니다: ${TARGET_ZIP//$SRC_DIR\//}"
         exit 1
     fi
 
     if [ "$SOURCE_ZIP" ]; then
         if [ ! -f "$SOURCE_ZIP" ]; then
-            LOGE "File not found: ${SOURCE_ZIP//$SRC_DIR\//}"
+            LOGE "파일을 찾을 수 없습니다: ${SOURCE_ZIP//$SRC_DIR\//}"
             exit 1
         fi
     fi
@@ -57,7 +57,7 @@ PREPARE_SCRIPT()
         EVAL "unzip -p \"$TARGET_ZIP\" \"build_info.txt\"" || exit 1
         TARGET_BUILD_INFO="$(unzip -p "$TARGET_ZIP" "build_info.txt")"
 
-        OUTPUT_FILE="$OUT_DIR/UN1CA_"
+        OUTPUT_FILE="$OUT_DIR/PrismProject-Next_"
         OUTPUT_FILE+="$(grep "^version" <<< "$TARGET_BUILD_INFO" | cut -d "=" -f 2 -s)"
         OUTPUT_FILE+="_"
         OUTPUT_FILE+="$(date -d "@$(grep "^timestamp" <<< "$TARGET_BUILD_INFO" | cut -d "=" -f 2 -s)" "+%Y%m%d")"
@@ -73,7 +73,7 @@ PREPARE_SCRIPT()
             OUTPUT_FILE+="$(grep "^timestamp" <<< "$SOURCE_BUILD_INFO" | cut -d "=" -f 2 -s)"
         fi
         if ! $DEBUG || $ROM_IS_OFFICIAL; then
-            OUTPUT_FILE+="-sign"
+            OUTPUT_FILE+="_signed"
         fi
         OUTPUT_FILE+=".zip"
     fi
@@ -81,9 +81,9 @@ PREPARE_SCRIPT()
 
 PRINT_USAGE()
 {
-    echo "Usage: build_flashable_zip [options] <file>" >&2
-    echo " -i, --incremental : Generate an incremental zip using the given target-files zip as source" >&2
-    echo " -o, --output : Specify the output zip path, defaults to $OUT_DIR" >&2
+    echo "사용 예제: build_flashable_zip [옵션] <파일>" >&2
+    echo " -i, --incremental : 지정한 target-files zip을 소스로 사용해 incremental zip을 생성합니다." >&2
+    echo " -o, --output : 출력 zip 경로를 지정합니다. 기본값은 $OUT_DIR 입니다." >&2
 }
 # ]
 

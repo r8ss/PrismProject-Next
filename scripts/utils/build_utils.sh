@@ -6,7 +6,7 @@ source "$SRC_DIR/scripts/utils/common_utils.sh"
 # ]
 
 # GET_DISK_USAGE <file>
-# Returns the size in bytes of the supplied file.
+# 지정한 파일의 크기를 바이트 단위로 반환합니다.
 GET_DISK_USAGE()
 {
     _CHECK_NON_EMPTY_PARAM "FILE" "$1" || return 1
@@ -14,7 +14,7 @@ GET_DISK_USAGE()
     local FILE="$1"
 
     if [ ! -e "$FILE" ]; then
-        LOGE "File not found: ${FILE//$SRC_DIR\//}"
+        LOGE "파일을 찾을 수 없습니다: ${FILE//$SRC_DIR\//}"
         return 1
     fi
 
@@ -26,7 +26,7 @@ GET_DISK_USAGE()
 }
 
 # GET_IMAGE_SIZE <file>
-# Returns the size in bytes of the supplied image.
+# 지정한 이미지의 크기를 바이트 단위로 반환합니다.
 GET_IMAGE_SIZE()
 {
     _CHECK_NON_EMPTY_PARAM "FILE" "$1" || return 1
@@ -34,7 +34,7 @@ GET_IMAGE_SIZE()
     local FILE="$1"
 
     if [ ! -f "$FILE" ]; then
-        LOGE "File not found: ${FILE//$SRC_DIR\//}"
+        LOGE "파일을 찾을 수 없습니다: ${FILE//$SRC_DIR\//}"
         return 1
     fi
 
@@ -67,7 +67,7 @@ for d in "${DEPENDENCIES[@]}"; do
     fi
 done
 if [ "${#MISSING[@]}" -ne 0 ]; then
-    echo -e '\033[1;31m'"The following dependencies are missing from your system:"'\033[0;31m' >&2
+    echo -e '\033[1;31m'"다음 의존성이 시스템에 없습니다:"'\033[0;31m' >&2
     printf '%s ' "${MISSING[@]}" >&2
     echo -e '\033[0m' >&2
     return 1
@@ -75,7 +75,7 @@ fi
 unset DEPENDENCIES MISSING
 
 if ! "$SRC_DIR/external/make.sh" --check-tools; then
-    LOG_STEP_IN true "Building required tools..."
+    LOG_STEP_IN true "필요한 도구를 빌드 중..."
     "$SRC_DIR/external/make.sh" || return 1
     LOG_STEP_OUT
 fi
