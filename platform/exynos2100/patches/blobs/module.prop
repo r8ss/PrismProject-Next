@@ -1,4 +1,4 @@
 id=blobs
-name=Blobs
+name=Blob
 author=salvogiangri, xfwdrev
-description=Replaces source blobs with target-compatible ones.
+description=소스 blob을 대상과 호환되는 blob으로 교체합니다.

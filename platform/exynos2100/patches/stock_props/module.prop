@@ -1,4 +1,4 @@
 id=stock_props
-name=Stock props
+name=기본 prop
 author=salvogiangri
-description=Adds target device system props.
+description=대상 기기의 system prop을 추가합니다.

@@ -1,4 +1,4 @@
 id=stock_blobs
-name=Stock blobs
+name=기본 blob
 author=salvogiangri
-description=Replaces generic source blobs with target ones.
+description=일반 소스 blob을 대상 blob으로 교체합니다.

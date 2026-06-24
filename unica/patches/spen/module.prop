@@ -1,4 +1,4 @@
 id=spen
-name=S Pen blobs
+name=S Pen blob
 author=salvogiangri
-description=Adds S Pen blobs if target device is capable.
+description=대상 기기가 지원하면 S Pen blob을 추가합니다.

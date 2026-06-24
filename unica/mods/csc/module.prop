@@ -1,4 +1,4 @@
 id=csc
-name=CSC mods
+name=CSC 모드
 author=salvogiangri
-description=Adds frameworks hooks to force enable extra CSC features.
+description=추가 CSC 기능을 강제로 활성화하는 framework 훅을 추가합니다.

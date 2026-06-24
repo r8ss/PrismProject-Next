@@ -1,4 +1,4 @@
 id=debloat
-name=Debloat list
+name=디블로트 목록
 author=salvogiangri
-description=Applies ROM/device-specific debloat list in work dir.
+description=작업 디렉터리에 ROM/기기별 디블로트 목록을 적용합니다.

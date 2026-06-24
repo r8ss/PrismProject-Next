@@ -1,4 +1,4 @@
 id=bt-lib-patch
-name=Bluetooth Library Patcher
+name=Bluetooth 라이브러리 패처
 author=3arthur6, duhansysl
-description=Preventing loss of bluetooth pairings after reboot or airplane mode switch on rooted samsung devices.
+description=루팅된 Samsung 기기에서 재부팅 또는 비행기 모드 전환 후 Bluetooth 페어링이 사라지는 문제를 방지합니다.

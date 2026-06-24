@@ -1,4 +1,4 @@
 id=vintf
-name=Vendor interface objects blobs
+name=Vendor interface objects blob
 author=salvogiangri
-description=Replaces VINTF objects blobs with target ones.
+description=VINTF objects blob을 대상 blob으로 교체합니다.

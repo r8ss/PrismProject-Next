@@ -1,4 +1,4 @@
 id=deknox
-name=Nuke Knox
+name=Knox 제거
 author=salvogiangri
-description=Removes Knox bloat (DualDAR, HDM).
+description=Knox 관련 불필요 항목(DualDAR, HDM)을 제거합니다.

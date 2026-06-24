@@ -1,16 +1,13 @@
 REPOSITORY="https://github.com/UN1CA/proprietary_vendor_samsung_exynos2100/releases/download"
-TARS=(
-    # t2sxxx (eur_open)
-    "G996BXXSJHZC2_XEO_OXM/BL_G996BXXSJHZC2_G996BXXSJHZC2_MQB107295216_REV01_user_low_ship_MULTI_CERT.tar.md5"
-    "G996BXXSJHZC2_XEO_OXM/CP_G996BXXSJHZA6_CP32677257_MQB105755316_REV01_user_low_ship_MULTI_CERT.tar.md5"
-    # t2sksx (kor_single)
-    "G996NKSSCHZA9_KOO_OKR/BL_G996NKSSCHZA9_G996NKSSCHZA9_MQB107175103_REV01_user_low_ship_MULTI_CERT.tar.md5"
-    "G996NKSSCHZA9_KOO_OKR/CP_G996NKOSCHZA5_CP32602497_MQB105441439_REV01_user_low_ship_MULTI_CERT.tar.md5"
+TAR="G996NKSSCHZA9_KOO_OKR"
+FILES=(
+    "BL_G996NKSSCHZA9_G996NKSSCHZA9_MQB107175103_REV01_user_low_ship_MULTI_CERT.tar.md5"
+    "CP_G996NKOSCHZA5_CP32602497_MQB105441439_REV01_user_low_ship_MULTI_CERT.tar.md5"
 )
 
-for i in "${TARS[@]}"; do
-    LOG "- Downloading $(basename "$i")"
-    DOWNLOAD_FILE "$REPOSITORY/$i" "$TMP_DIR/$(basename "$i")" || return 1
+for i in "${FILES[@]}"; do
+    LOG "- Downloading $i"
+    DOWNLOAD_FILE "$REPOSITORY/$TAR/$i" "$TMP_DIR/$i" || return 1
 done
 
 while IFS= read -r f; do
@@ -43,10 +40,7 @@ while IFS= read -r f; do
 
     MODEL="$(cut -c4-8 <<< "$FILE_NAME" | sed "s/^/SM-/")"
 
-    if [ ! -d "$TMP_DIR/firmware/$MODEL" ]; then
-        EVAL "mkdir -p \"$TMP_DIR/firmware/$MODEL\"" || return 1
-    fi
-
+    mkdir -p "$TMP_DIR/firmware/$MODEL"
     EVAL "cd \"$TMP_DIR/firmware/$MODEL\"; tar -xf \"$f\"" || return 1
     EVAL "rm -f \"$f\"" || return 1
 
@@ -69,4 +63,4 @@ while IFS= read -r f; do
     EVAL "printf \"\x03\" | dd of=\"$f\" bs=1 seek=123 count=1 conv=notrunc" || return 1
 done < <(find "$TMP_DIR" -type f -name "vbmeta.img")
 
-unset REPOSITORY TARS
+unset REPOSITORY TAR FILES

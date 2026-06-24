@@ -1,4 +1,4 @@
 id=uwb
-name=UWB blobs
+name=UWB blob
 author=salvogiangri
-description=Adds UWB blobs if target device is capable.
+description=대상 기기가 지원하면 UWB blob을 추가합니다.
