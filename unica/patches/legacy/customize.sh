@@ -159,14 +159,20 @@ if [ "$TARGET_PLATFORM_SDK_VERSION" -lt "35" ]; then
 fi
 
 # Ensure config_num_physical_slots is configured (pre-API 36)
-# https://android.googlesource.com/platform/frameworks/opt/telephony/+/42e37234cee15c9f3fcfac0532110abfc8843b99%5E%21/#F0
 if [ "$TARGET_PLATFORM_SDK_VERSION" -lt "36" ]; then
     if [ ! "$(GET_PROP "ro.telephony.sim_slots.count")" ] && \
             ! grep -q "ro.telephony.sim_slots.count" "$WORK_DIR/vendor/bin/secril_config_svc" && \
             ! grep -q -r "config_num_physical_slots" "$WORK_DIR/vendor/overlay"; then
-        PATCHED=true
-        APPLY_PATCH "system" "system/framework/telephony-common.jar" \
-            "$MODPATH/ril/telephony-common.jar/0001-Backport-legacy-UiccController-code.patch"
+
+        UICC_SMALI="$APKTOOL_DIR/system/framework/telephony-common.jar/smali/com/android/internal/telephony/uicc/UiccController.smali"
+
+        if ! grep -q "ro.vendor.api_level" "$UICC_SMALI"; then
+            PATCHED=true
+            APPLY_PATCH "system" "system/framework/telephony-common.jar" \
+                "$MODPATH/ril/telephony-common.jar/0001-Backport-legacy-UiccController-code.patch"
+        else
+            LOG "- UiccController already contains legacy slot-count patch"
+        fi
     fi
 fi
 
