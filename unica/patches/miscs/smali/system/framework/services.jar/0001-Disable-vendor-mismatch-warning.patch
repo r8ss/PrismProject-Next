@@ -1,12 +1,14 @@
---- smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali
-+++ smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali
+diff --git a/smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali b/smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali
+--- a/smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali
++++ b/smali/com/android/server/am/ActivityManagerService$$ExternalSyntheticLambda8.smali
 @@ -169,3 +169,5 @@
 -    const-string v4, "Build fingerprint is not consistent, warning user"
 +    const-string v4, "Build fingerprint is not consistent"
 +    return-void
 +    const-string v4, "Build fingerprint is not consistent"
---- smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali
-+++ smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali
+diff --git a/smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali b/smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali
+--- a/smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali
++++ b/smali_classes2/com/android/server/wm/ActivityTaskManagerService$LocalService$$ExternalSyntheticLambda4.smali
 @@ -36,73 +36,6 @@
  
      packed-switch v0, :pswitch_data_0
